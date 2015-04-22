@@ -2,7 +2,7 @@
 title: "Statistical Inference - Bootstrapping and the Central Limit Theorem"
 author: "Jonathan Hill, MPA"
 date: "Wednesday, April 22, 2015"
-output: html_document
+output: word_document
 ---
 
 # Overview
@@ -63,7 +63,7 @@ theoretical.sd <- (1/lambda)/sqrt(sample.size)
 theoretical.var <- ((1/lambda)*(1/sqrt(sample.size)))^2
 ```
 
-The standard deviation of the simulated data is `r round(sim.sd,3)`, while the theoretical standard deviation is `r round(theoretical.sd,3)`. The respective variances are `r round(sim.var,3)` and `r round(theoretical.var,3)`.
+The standard deviation of the simulated data is `r round(sim.sd,3)`, while the theoretical standard deviation is `r round(theoretical.sd,3)`. The respective variances are `r round(sim.var,3)` and `r round(theoretical.var,3)`.  These differences are slightly larger than the differences between the sample means and theoretical mean, but they are still very similar.
 
 ## Distribution
 
