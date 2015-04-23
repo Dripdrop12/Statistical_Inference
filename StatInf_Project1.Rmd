@@ -2,11 +2,11 @@
 title: "Statistical Inference - Bootstrapping and the Central Limit Theorem"
 author: "Jonathan Hill, MPA"
 date: "Wednesday, April 22, 2015"
-output: word_document
+output: html_document
 ---
 
 # Overview
-This project demonstrates the similarity between bootstrapped data using R's rexp() function, which generates random deviates from an exponential distribution with the rate lambda, and the theoretical distribution of an exponential equation, 1/lambda where lambda = 0.2.
+This project demonstrates the similarity between bootstrapped data using R's rexp() function, which generates random deviates from an exponential distribution with the rate lambda, and the theoretical distribution of an exponential equation, 1/lambda where lambda = 0.2.  The central limit theorem predicts that the means of these two distributions should converge as n goes to infinity and the distribution of the sample means should be roughly normal.
 
 In order to illustrate this relationship, I ran 1000 simulations with sample sizes of 40 and analyzed the characteristics of that simulation as compared to their theoretical values.
 
@@ -16,7 +16,7 @@ First I set the seed to 1 so that the randomly generated numbers in my simulatio
 set.seed(1)
 ```
 
-# Simulations
+# Simulation
 ```{r}
 # Variables #
 lambda <- .2
@@ -45,7 +45,7 @@ lines(xdim, ydim, pch=22, lty=2, col="blue")
 legend('topright', c("Simulated", "Theoretical"), lty=c(1,2), col=c("black", "blue"),bty = "n")
 ```
 
-As you can see, they are practically the same.  There are some slight differences between the density curves, but the characteristics of the theoretical and simulated distrubtions could be assumed to be the same for most practical applications.
+As you can see, they are practically the same.  There are some slight differences between the density curves, but the characteristics of the theoretical and simulated distrubtions are clearly similar.
 
 
 ## Sample Variance versus Theoretical Variance
@@ -63,7 +63,7 @@ theoretical.sd <- (1/lambda)/sqrt(sample.size)
 theoretical.var <- ((1/lambda)*(1/sqrt(sample.size)))^2
 ```
 
-The standard deviation of the simulated data is `r round(sim.sd,3)`, while the theoretical standard deviation is `r round(theoretical.sd,3)`. The respective variances are `r round(sim.var,3)` and `r round(theoretical.var,3)`.  These differences are slightly larger than the differences between the sample means and theoretical mean, but they are still very similar.
+The standard deviation of the simulated data is `r round(sim.sd,3)`, while the theoretical standard deviation is `r round(theoretical.sd,3)`. The respective variances are `r round(sim.var,3)` and `r round(theoretical.var,3)`.  These differences are slightly larger than the differences between the sample mean and theoretical mean, but they are also very similar.
 
 ## Distribution
 
@@ -75,3 +75,6 @@ qqline(sim.dat)
 ```
 
 Most of the points lie along the normal line.  There are some slight deviations, but they are not significantly large.  The simulated data are normally distributed with mean `r round(mean(sim.dat),3)`.
+
+**Conclusion:**
+This evidence supports the central limit theorem because the mean of these random samples is very close to the theoretical mean and their distribution is roughly normal.  
