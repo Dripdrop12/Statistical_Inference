@@ -2,7 +2,7 @@
 title: "Statistical Inference - The Effect of Vitamin C on Tooth Growth in Guinea Pigs"
 author: "Jonathan Hill, MPA"
 date: "Wednesday, April 22, 2015"
-output: word_document
+output: html_document
 ---
 ## Load necessary R packages and the ToothGrowth dataset
 ```{r,warning=FALSE}
@@ -85,7 +85,7 @@ There is no mention of the data being produced using proper sampling methodology
 shapiro.test(x = tooth.dat$len)
 ```
 
-A Shapiro Wilk Normality test reveals that this assumption has been violated because the p-value is greater than .05.
+A Shapiro Wilk Normality test reveals that this assumption is reasonable because the p-value is greater than .05.
 
 4. **Independent Samples**
 
